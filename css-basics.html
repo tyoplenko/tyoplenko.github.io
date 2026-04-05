@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Основы CSS — How to Code</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <span class="logo-code">&lt;/&gt;</span>
+                <span class="logo-text">CodeEasy</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="html-basics.html">Основы HTML</a></li>
+                    <li><a href="css-basics.html" class="active">Основы CSS</a></li>
+                    <li><a href="resources.html">Ресурсы</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="page-header">
+                <h1>Каскадные таблицы стилей <span class="highlight">CSS</span></h1>
+                <p class="page-subtitle">Одежда и макияж твоего сайта. Делаем HTML красивым.</p>
+            </div>
+
+            <!-- ===== ЧАСТЬ 1: ВВЕДЕНИЕ ===== -->
+            <section class="content-section">
+                <h2>Что такое CSS?</h2>
+                <p><strong>CSS (Cascading Style Sheets)</strong> — это язык оформления веб-страниц. Он отвечает за то, <strong>как</strong> выглядит сайт: цвета, шрифты, расположение блоков, анимации, отступы и многое другое.</p>
+                <p>Вернемся к аналогии с домом: если HTML — это каркас, то CSS — это отделка: обои на стенах, цвет пола, форма мебели. Один и тот же HTML-каркас может выглядеть совершенно по-разному с разными CSS-стилями.</p>
+                <div class="info-box">
+                    <strong>📖 Интересный факт:</strong> CSS был создан в 1996 году норвежцем Хоконом Виумом Ли. До появления CSS дизайн сайтов делался прямо внутри HTML с помощью атрибута <code>bgcolor</code> и тега <code>&lt;font&gt;</code>. Это было очень неудобно!
+                </div>
+            </section>
+
+            <!-- ===== ЧАСТЬ 2: СИНТАКСИС CSS ===== -->
+            <section class="content-section">
+                <h2>Синтаксис CSS</h2>
+                <p>CSS состоит из правил. Каждое правило имеет селектор и блок объявлений:</p>
+                <div class="code-block">
+                    <pre><code>селектор {
+    свойство1: значение1;
+    свойство2: значение2;
+}
+
+/* Пример */
+p {
+    color: blue;
+    font-size: 16px;
+    text-align: center;
+}</code></pre>
+                </div>
+                <div class="info-box">
+                    <strong>💡 Разбор примера:</strong>
+                    <ul>
+                        <li><code>p</code> — селектор (выбирает все абзацы)</li>
+                        <li><code>color: blue;</code> — свойство: значение (цвет текста → синий)</li>
+                        <li><code>font-size: 16px;</code> — размер шрифта → 16 пикселей</li>
+                        <li><code>text-align: center;</code> — выравнивание текста → по центру</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- ===== ЧАСТЬ 3: ТИПЫ СЕЛЕКТОРОВ ===== -->
+            <section class="content-section">
+                <h2>Основные типы селекторов</h2>
+                <p>Селекторы говорят браузеру, к каким элементам применять стили:</p>
+                <div class="table-wrapper">
+                    <table class="tag-table">
+                        <thead>
+                            <tr><th>Тип селектора</th><th>Пример</th><th>Что делает</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Селектор по тегу</td><td><code>p { }</code></td><td>Выбирает все элементы с тегом <code>&lt;p&gt;</code></td></tr>
+                            <tr><td>Селектор по классу</td><td><code>.my-class { }</code></td><td>Выбирает все элементы с классом <code>class="my-class"</code></td></tr>
+                            <tr><td>Селектор по ID</td><td><code>#my-id { }</code></td><td>Выбирает элемент с id <code>id="my-id"</code> (уникальный!)</td></tr>
+                            <tr><td>Универсальный</td><td><code>* { }</code></td><td>Выбирает ВСЕ элементы на странице</td></tr>
+                            <tr><td>Вложенный</td><td><code>div p { }</code></td><td>Выбирает <code>&lt;p&gt;</code> внутри <code>&lt;div&gt;</code></td></tr>
+                            <tr><td>Дочерний</td><td><code>div > p { }</code></td><td>Выбирает только прямых детей <code>&lt;p&gt;</code> внутри <code>&lt;div&gt;</code></td></tr>
+                            <tr><td>Псевдокласс</td><td><code>a:hover { }</code></td><td>Стили при наведении мыши</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="code-block">
+                    <pre><code>&lt;!-- HTML --&gt;
+&lt;p&gt;Обычный абзац&lt;/p&gt;
+&lt;p class="special"&gt;Особый абзац&lt;/p&gt;
+&lt;p id="unique"&gt;Уникальный абзац&lt;/p&gt;
+
+/* CSS */
+p { color: gray; }           /* все абзацы — серые */
+.special { color: green; }   /* только .special — зеленые */
+#unique { color: red; }      /* только #unique — красный */</code></pre>
+                </div>
+                <div class="tip-box">
+                    <strong>🔥 Важно:</strong> ID должен быть уникальным на странице (один элемент с таким id). Классы можно использовать многократно. Для стилизации чаще используют классы!
+                </div>
+            </section>
+
+            <!-- ===== ЧАСТЬ 4: СПОСОБЫ ПОДКЛЮЧЕНИЯ ===== -->
+            <section class="content-section">
+                <h2>Три способа подключить CSS</h2>
+                <div class="methods-grid">
+                    <div class="method-card">
+                        <h3>1. Встроенный стиль (inline)</h3>
+                        <p>Добавляется прямо в HTML-тег через атрибут <code>style</code>.</p>
+                        <div class="mini-code">&lt;p style="color: red;"&gt;Красный текст&lt;/p&gt;</div>
+                        <p class="method-note">❌ Не рекомендуется для больших проектов — сложно поддерживать.</p>
+                    </div>
+                    <div class="method-card">
+                        <h3>2. Внутренний стиль (internal)</h3>
+                        <p>Прописывается внутри тега <code>&lt;style&gt;</code> в разделе <code>&lt;head&gt;</code>.</p>
+                        <div class="mini-code">&lt;style&gt; p { color: blue; } &lt;/style&gt;</div>
+                        <p class="method-note">⚠️ Подходит для небольших страниц, но стили не переиспользуются.</p>
+                    </div>
+                    <div class="method-card">
+                        <h3>3. Внешний стиль (external) — ЛУЧШИЙ!</h3>
+                        <p>CSS пишется в отдельном файле <code>.css</code> и подключается ссылкой.</p>
+                        <div class="mini-code">&lt;link rel="stylesheet" href="style.css"&gt;</div>
+                        <p class="method-note">✅ Рекомендуемый способ: один файл стилей для всего сайта.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== ЧАСТЬ 5: ОСНОВНЫЕ СВОЙСТВА (РАСШИРЕННАЯ ТАБЛИЦА) ===== -->
+            <section class="content-section">
+                <h2>Основные CSS-свойства</h2>
+                <div class="table-wrapper">
+                    <table class="tag-table">
+                        <thead>
+                            <tr><th>Свойство</th><th>Что делает</th><th>Пример значения</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr class="table-section"><td colspan="3"><strong>🎨 Цвета и фон</strong></td></tr>
+                            <tr><td><code>color</code></td><td>Цвет текста</td><td><code>red</code>, <code>#3366ff</code>, <code>rgb(0,0,0)</code></td></tr>
+                            <tr><td><code>background-color</code></td><td>Фоновый цвет</td><td><code>#f5f5f5</code>, <code>rgba(0,0,0,0.5)</code></td></tr>
+                            <tr><td><code>background-image</code></td><td>Фоновое изображение</td><td><code>url('bg.jpg')</code></td></tr>
+                            
+                            <tr class="table-section"><td colspan="3"><strong>📝 Шрифты и текст</strong></td></tr>
+                            <tr><td><code>font-size</code></td><td>Размер шрифта</td><td><code>16px</code>, <code>1.5rem</code>, <code>1.2em</code></td></tr>
+                            <tr><td><code>font-family</code></td><td>Шрифт текста</td><td><code>Arial, sans-serif</code></td></tr>
+                            <tr><td><code>font-weight</code></td><td>Жирность (bold/normal)</td><td><code>bold</code>, <code>400</code>, <code>700</code></td></tr>
+                            <tr><td><code>text-align</code></td><td>Выравнивание текста</td><td><code>left</code>, <code>center</code>, <code>right</code>, <code>justify</code></td></tr>
+                            <tr><td><code>text-decoration</code></td><td>Подчеркивание/зачеркивание</td><td><code>underline</code>, <code>none</code></td></tr>
+                            <tr><td><code>line-height</code></td><td>Межстрочный интервал</td><td><code>1.5</code>, <code>24px</code></td></tr>
+                            
+                            <tr class="table-section"><td colspan="3"><strong>📦 Отступы и размеры</strong></td></tr>
+                            <tr><td><code>margin</code></td><td>Внешний отступ (от элемента до границы)</td><td><code>10px</code>, <code>20px auto</code></td></tr>
+                            <tr><td><code>padding</code></td><td>Внутренний отступ (от границы до контента)</td><td><code>15px</code>, <code>5px 10px</code></td></tr>
+                            <tr><td><code>width</code></td><td>Ширина элемента</td><td><code>300px</code>, <code>100%</code>, <code>50vw</code></td></tr>
+                            <tr><td><code>height</code></td><td>Высота элемента</td><td><code>200px</code>, <code>auto</code></td></tr>
+                            <tr><td><code>border</code></td><td>Рамка вокруг элемента</td><td><code>1px solid black</code></td></tr>
+                            <tr><td><code>border-radius</code></td><td>Скругление углов</td><td><code>10px</code>, <code>50%</code> (круг)</td></tr>
+                            
+                            <tr class="table-section"><td colspan="3"><strong>📐 Позиционирование и расположение</strong></td></tr>
+                            <tr><td><code>display</code></td><td>Тип отображения элемента</td><td><code>block</code>, <code>inline</code>, <code>flex</code>, <code>grid</code>, <code>none</code></td></tr>
+                            <tr><td><code>position</code></td><td>Тип позиционирования</td><td><code>static</code>, <code>relative</code>, <code>absolute</code>, <code>fixed</code></td></tr>
+                            
+                            <tr class="table-section"><td colspan="3"><strong>✨ Эффекты и анимация</strong></td></tr>
+                            <tr><td><code>opacity</code></td><td>Прозрачность (0 — невидим, 1 — полностью видим)</td><td><code>0.5</code></td></tr>
+                            <tr><td><code>box-shadow</code></td><td>Тень блока</td><td><code>2px 2px 5px rgba(0,0,0,0.3)</code></td></tr>
+                            <tr><td><code>transition</code></td><td>Плавные переходы</td><td><code>all 0.3s ease</code></td></tr>
+                            <tr><td><code>transform</code></td><td>Трансформация (поворот, масштаб)</td><td><code>scale(1.1)</code>, <code>rotate(10deg)</code></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- ===== ЧАСТЬ 6: ЕДИНИЦЫ ИЗМЕРЕНИЯ ===== -->
+            <section class="content-section">
+                <h2>Единицы измерения в CSS</h2>
+                <div class="table-wrapper">
+                    <table class="tag-table">
+                        <thead><tr><th>Единица</th><th>Описание</th><th>Пример</th></tr></thead>
+                        <tbody>
+                            <tr><td><code>px</code></td><td>Пиксели (абсолютная единица)</td><td><code>font-size: 16px;</code></td></tr>
+                            <tr><td><code>%</code></td><td>Проценты от родительского элемента</td><td><code>width: 50%;</code></td></tr>
+                            <tr><td><code>em</code></td><td>Относительно размера шрифта родителя</td><td><code>margin: 2em;</code></td></tr>
+                            <tr><td><code>rem</code></td><td>Относительно размера шрифта корня (<code>&lt;html&gt;</code>)</td><td><code>padding: 1rem;</code></td></tr>
+                            <tr><td><code>vw</code></td><td>1% от ширины окна браузера</td><td><code>width: 50vw;</code></td></tr>
+                            <tr><td><code>vh</code></td><td>1% от высоты окна браузера</td><td><code>height: 100vh;</code></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="tip-box">
+                    <strong>💎 Совет:</strong> Для отзывчивого дизайна используй <code>rem</code> и проценты. Пиксели лучше оставить для границ и мелких деталей.
+                </div>
+            </section>
+
+            <!-- ===== ЧАСТЬ 7: FLEXBOX ===== -->
+            <section class="content-section">
+                <h2>Flexbox — современный способ верстки</h2>
+                <p>Flexbox позволяет легко выравнивать элементы по горизонтали и вертикали. Это настоящий прорыв в CSS!</p>
+                <div class="code-block">
+                    <pre><code>.container {
+    display: flex;           /* Включаем Flexbox */
+    justify-content: center; /* Выравнивание по горизонтали */
+    align-items: center;     /* Выравнивание по вертикали */
+    gap: 20px;               /* Расстояние между элементами */
+    flex-wrap: wrap;         /* Перенос на новую строку */
+}</code></pre>
+                </div>
+                <div class="info-box">
+                    <strong>🎯 Часто используемые свойства Flexbox:</strong>
+                    <ul>
+                        <li><code>justify-content</code> — горизонтальное выравнивание: <code>flex-start</code>, <code>center</code>, <code>space-between</code>, <code>space-around</code></li>
+                        <li><code>align-items</code> — вертикальное выравнивание: <code>flex-start</code>, <code>center</code>, <code>stretch</code></li>
+                        <li><code>flex-direction</code> — направление: <code>row</code> (по горизонтали), <code>column</code> (по вертикали)</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- ===== ЧАСТЬ 8: CSS GRID ===== -->
+            <section class="content-section">
+                <h2>CSS Grid — для сложных сеток</h2>
+                <p>Grid позволяет создавать сложные сетки (как таблицы, но гибче). Идеален для создания галерей и макетов страниц.</p>
+                <div class="code-block">
+                    <pre><code>.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 колонки равной ширины */
+    gap: 20px;
+}
+
+/* Адаптивная сетка */
+.responsive-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}</code></pre>
+                </div>
+            </section>
+
+            <!-- ===== ЧАСТЬ 9: МЕДИА-ЗАПРОСЫ (АДАПТИВНОСТЬ) ===== -->
+            <section class="content-section">
+                <h2>Адаптивный дизайн (Media Queries)</h2>
+                <p>Медиа-запросы позволяют применять разные стили в зависимости от ширины экрана. Без них сайт будет плохо выглядеть на телефонах!</p>
+                <div class="code-block">
+                    <pre><code>/* Для компьютеров */
+.container {
+    width: 1200px;
+}
+
+/* Для планшетов (ширина меньше 768px) */
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+    }
+}
+
+/* Для телефонов (ширина меньше 480px) */
+@media (max-width: 480px) {
+    .menu {
+        flex-direction: column;
+    }
+}</code></pre>
+                </div>
+                <div class="tip-box">
+                    <strong>📱 Важно:</strong> Всегда добавляй метатег <code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code> в <code>&lt;head&gt;</code> — без него адаптивность не будет работать правильно!
+                </div>
+            </section>
+
+            <!-- ===== ЧАСТЬ 10: ПРИМЕР ===== -->
+            <section class="content-section">
+                <h2>Живой пример: ДО и ПОСЛЕ CSS</h2>
+                <div class="example-before-after">
+                    <div class="example-card">
+                        <h3>Без CSS</h3>
+                        <div class="no-css-demo">
+                            <p>Это просто текст</p>
+                            <button>Кнопка</button>
+                        </div>
+                        <p class="example-note">Скучно, всё сливается, нет стиля.</p>
+                    </div>
+                    <div class="example-card">
+                        <h3>С CSS</h3>
+                        <div class="with-css-demo">
+                            <p>Это красивый текст</p>
+                            <button class="demo-btn">Кнопка</button>
+                        </div>
+                        <p class="example-note">Цвета, отступы, скругления — живой и приятный дизайн!</p>
+                    </div>
+                </div>
+                <div class="code-block">
+                    <pre><code>/* CSS, который это делает */
+.with-css-demo {
+    background: linear-gradient(135deg, #667eea20, #764ba220);
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.demo-btn {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    transition: transform 0.3s ease;
+}
+
+.demo-btn:hover {
+    transform: scale(1.05);
+}</code></pre>
+                </div>
+            </section>
+
+            <!-- ===== ЧАСТЬ 11: ИТОГОВЫЙ СОВЕТ ===== -->
+            <section class="content-section">
+                <div class="tip-box">
+                    <strong>🎨 Главные советы по CSS для начинающих:</strong>
+                    <ol style="margin-top: 10px; margin-left: 20px;">
+                        <li>Используй внешний файл <code>.css</code> — так код чище и легче поддерживать</li>
+                        <li>Изучи Flexbox и Grid — они заменяют сложные костыли с float и таблицами</li>
+                        <li>Используй инструменты разработчика в браузере (F12) — там можно экспериментировать со стилями в реальном времени</li>
+                        <li>Давай классам осмысленные имена (не <code>.red-text</code>, а <code>.error-message</code>)</li>
+                        <li>Начинай с мобильной версии (Mobile First) — это современный стандарт</li>
+                    </ol>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 CodeEasy. Учебный проект по информатике.</p>
+            <p>Создано в рамках индивидуального проекта "Создание сайта в HTML"</p>
+        </div>
+    </footer>
+</body>
+</html>

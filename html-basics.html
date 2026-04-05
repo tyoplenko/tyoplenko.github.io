@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Основы HTML — How to Code</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <span class="logo-code">&lt;/&gt;</span>
+                <span class="logo-text">CodeEasy</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="html-basics.html" class="active">Основы HTML</a></li>
+                    <li><a href="css-basics.html">Основы CSS</a></li>
+                    <li><a href="resources.html">Ресурсы</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="page-header">
+                <h1>Язык разметки <span class="highlight">HTML</span></h1>
+                <p class="page-subtitle">Скелет любого сайта. Изучи основы за 10 минут.</p>
+            </div>
+
+            <!-- ===== ЧАСТЬ 1: ВВЕДЕНИЕ ===== -->
+            <section class="content-section">
+                <h2>Что такое HTML?</h2>
+                <p><strong>HTML (HyperText Markup Language)</strong> — это язык гипертекстовой разметки. Он отвечает за <strong>структуру</strong> веб-страницы: где будет заголовок, где абзац, где картинка, а где ссылка.</p>
+                <p>Представь себе дом: HTML — это его каркас (стены, окна, двери), а CSS — это ремонт и дизайн (обои, краска, мебель). Без каркаса дизайн просто не на чем держать.</p>
+                <div class="info-box">
+                    <strong>📖 Интересный факт:</strong> HTML был создан в 1991 году Тимом Бернерсом-Ли. Первая версия имела всего 18 тегов. Сегодня в HTML5 их более 100!
+                </div>
+            </section>
+
+            <!-- ===== ЧАСТЬ 2: СТРУКТУРА ДОКУМЕНТА ===== -->
+            <section class="content-section">
+                <h2>Базовая структура HTML-документа</h2>
+                <p>Любой HTML-файл начинается с этой "скелетной" разметки:</p>
+                <div class="code-block">
+                    <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="ru"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Мой первый сайт&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Привет, мир!&lt;/h1&gt;
+    &lt;p&gt;Это мой первый сайт.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                </div>
+                <div class="info-box">
+                    <strong>💡 Что здесь происходит?</strong>
+                    <ul>
+                        <li><code>&lt;!DOCTYPE html&gt;</code> — говорит браузеру, что это HTML5</li>
+                        <li><code>&lt;html&gt;</code> — корневой элемент всей страницы</li>
+                        <li><code>&lt;head&gt;</code> — служебная информация (не видна на странице)</li>
+                        <li><code>&lt;meta charset="UTF-8"&gt;</code> — поддержка русских букв и спецсимволов</li>
+                        <li><code>&lt;title&gt;</code> — заголовок вкладки браузера</li>
+                        <li><code>&lt;body&gt;</code> — всё, что внутри, видит пользователь</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- ===== ЧАСТЬ 3: ТЕГИ И АТРИБУТЫ ===== -->
+            <section class="content-section">
+                <h2>Теги и атрибуты</h2>
+                <p><strong>Тег</strong> — это специальная команда, заключенная в угловые скобки. Большинство тегов парные (есть открывающий и закрывающий). <strong>Атрибуты</strong> — это дополнительные параметры тегов, которые уточняют их поведение.</p>
+                <div class="code-block">
+                    <pre><code>&lt;тег атрибут="значение"&gt;содержимое&lt;/тег&gt;
+
+&lt;a href="https://google.com" target="_blank"&gt;Ссылка на Google&lt;/a&gt;
+&lt;img src="photo.jpg" alt="Мое фото" width="300"&gt;</code></pre>
+                </div>
+                <div class="tip-box">
+                    <strong>🔥 Важно:</strong> Некоторые теги являются одиночными (не имеют закрывающей части): <code>&lt;img&gt;</code>, <code>&lt;br&gt;</code> (перенос строки), <code>&lt;hr&gt;</code> (горизонтальная линия).
+                </div>
+            </section>
+
+            <!-- ===== ЧАСТЬ 4: ОСНОВНЫЕ ТЕГИ (РАСШИРЕННАЯ ТАБЛИЦА) ===== -->
+            <section class="content-section">
+                <h2>Основные теги HTML</h2>
+                <p>Вот таблица самых важных тегов, которые нужно знать новичку:</p>
+                <div class="table-wrapper">
+                    <table class="tag-table">
+                        <thead>
+                            <tr><th>Тег</th><th>Назначение</th><th>Пример</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr class="table-section"><td colspan="3"><strong>📌 Текстовые элементы</strong></td></tr>
+                            <tr><td><code>&lt;h1&gt;...&lt;/h6&gt;</code></td><td>Заголовки (от самого важного до самого маленького)</td><td><code>&lt;h1&gt;Заголовок сайта&lt;/h1&gt;</code></td></tr>
+                            <tr><td><code>&lt;p&gt;</code></td><td>Абзац текста</td><td><code>&lt;p&gt;Это абзац.&lt;/p&gt;</code></td></tr>
+                            <tr><td><code>&lt;br&gt;</code></td><td>Перенос строки (без отступа)</td><td><code>Строка 1&lt;br&gt;Строка 2</code></td></tr>
+                            <tr><td><code>&lt;hr&gt;</code></td><td>Горизонтальная разделительная линия</td><td><code>&lt;hr&gt;</code></td></tr>
+                            
+                            <tr class="table-section"><td colspan="3"><strong>🔗 Ссылки и изображения</strong></td></tr>
+                            <tr><td><code>&lt;a&gt;</code></td><td>Ссылка</td><td><code>&lt;a href="page.html"&gt;Текст ссылки&lt;/a&gt;</code></td></tr>
+                            <tr><td><code>&lt;img&gt;</code></td><td>Изображение</td><td><code>&lt;img src="photo.jpg" alt="Описание"&gt;</code></td></tr>
+                            
+                            <tr class="table-section"><td colspan="3"><strong>📋 Списки</strong></td></tr>
+                            <tr><td><code>&lt;ul&gt;</code></td><td>Маркированный список (с точками)</td><td><code>&lt;ul&gt;&lt;li&gt;Пункт 1&lt;/li&gt;&lt;/ul&gt;</code></td></tr>
+                            <tr><td><code>&lt;ol&gt;</code></td><td>Нумерованный список (с цифрами)</td><td><code>&lt;ol&gt;&lt;li&gt;Пункт 1&lt;/li&gt;&lt;/ol&gt;</code></td></tr>
+                            <tr><td><code>&lt;li&gt;</code></td><td>Элемент списка</td><td><code>&lt;li&gt;Текст пункта&lt;/li&gt;</code></td></tr>
+                            
+                            <tr class="table-section"><td colspan="3"><strong>📦 Контейнеры и структура</strong></td></tr>
+                            <tr><td><code>&lt;div&gt;</code></td><td>Универсальный блочный контейнер</td><td><code>&lt;div class="wrapper"&gt;...&lt;/div&gt;</code></td></tr>
+                            <tr><td><code>&lt;span&gt;</code></td><td>Универсальный строчный контейнер</td><td><code>&lt;span class="bold"&gt;Текст&lt;/span&gt;</code></td></tr>
+                            
+                            <tr class="table-section"><td colspan="3"><strong>🏗️ Семантические теги (HTML5)</strong></td></tr>
+                            <tr><td><code>&lt;header&gt;</code></td><td>Шапка сайта</td><td><code>&lt;header&gt;Логотип + меню&lt;/header&gt;</code></td></tr>
+                            <tr><td><code>&lt;nav&gt;</code></td><td>Навигационное меню</td><td><code>&lt;nav&gt;&lt;a href="/"&gt;Главная&lt;/a&gt;&lt;/nav&gt;</code></td></tr>
+                            <tr><td><code>&lt;main&gt;</code></td><td>Основное содержание страницы</td><td><code>&lt;main&gt;...&lt;/main&gt;</code></td></tr>
+                            <tr><td><code>&lt;section&gt;</code></td><td>Логический раздел страницы</td><td><code>&lt;section&gt;Блок с новостями&lt;/section&gt;</code></td></tr>
+                            <tr><td><code>&lt;article&gt;</code></td><td>Самостоятельный контент (статья, пост)</td><td><code>&lt;article&gt;...&lt;/article&gt;</code></td></tr>
+                            <tr><td><code>&lt;aside&gt;</code></td><td>Боковая панель (сайдбар)</td><td><code>&lt;aside&gt;Реклама, виджеты&lt;/aside&gt;</code></td></tr>
+                            <tr><td><code>&lt;footer&gt;</code></td><td>Подвал сайта</td><td><code>&lt;footer&gt;Контакты, копирайт&lt;/footer&gt;</code></td></tr>
+                            
+                            <tr class="table-section"><td colspan="3"><strong>🎮 Формы и взаимодействие</strong></td></tr>
+                            <tr><td><code>&lt;form&gt;</code></td><td>Форма для отправки данных</td><td><code>&lt;form action="send.php"&gt;...&lt;/form&gt;</code></td></tr>
+                            <tr><td><code>&lt;input&gt;</code></td><td>Поле ввода (текст, пароль, кнопка и т.д.)</td><td><code>&lt;input type="text" placeholder="Имя"&gt;</code></td></tr>
+                            <tr><td><code>&lt;button&gt;</code></td><td>Кнопка</td><td><code>&lt;button&gt;Нажми меня&lt;/button&gt;</code></td></tr>
+                            <tr><td><code>&lt;textarea&gt;</code></td><td>Многострочное поле для текста</td><td><code>&lt;textarea rows="5"&gt;&lt;/textarea&gt;</code></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- ===== ЧАСТЬ 5: ПРИМЕР ПРОСТОЙ СТРАНИЦЫ ===== -->
+            <section class="content-section">
+                <h2>Пример простой веб-страницы</h2>
+                <p>Вот как выглядит полноценная HTML-страница с использованием разных тегов:</p>
+                <div class="code-block">
+                    <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Моя первая страница&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;header&gt;
+        &lt;h1&gt;Добро пожаловать на мой сайт!&lt;/h1&gt;
+        &lt;nav&gt;
+            &lt;a href="#"&gt;Главная&lt;/a&gt; | &lt;a href="#"&gt;О нас&lt;/a&gt; | &lt;a href="#"&gt;Контакты&lt;/a&gt;
+        &lt;/nav&gt;
+    &lt;/header&gt;
+    
+    &lt;main&gt;
+        &lt;section&gt;
+            &lt;h2&gt;Обо мне&lt;/h2&gt;
+            &lt;p&gt;Меня зовут Иван, и я учусь создавать сайты.&lt;/p&gt;
+            &lt;img src="my-photo.jpg" alt="Мое фото" width="200"&gt;
+        &lt;/section&gt;
+        
+        &lt;section&gt;
+            &lt;h2&gt;Мои любимые языки программирования&lt;/h2&gt;
+            &lt;ul&gt;
+                &lt;li&gt;HTML&lt;/li&gt;
+                &lt;li&gt;CSS&lt;/li&gt;
+                &lt;li&gt;JavaScript&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/section&gt;
+    &lt;/main&gt;
+    
+    &lt;footer&gt;
+        &lt;p&gt;© 2026 Мой сайт&lt;/p&gt;
+    &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                </div>
+            </section>
+
+            <!-- ===== ЧАСТЬ 6: СПЕЦИАЛЬНЫЕ СИМВОЛЫ ===== -->
+            <section class="content-section">
+                <h2>Специальные символы (мнемоники)</h2>
+                <p>Некоторые символы нельзя просто так написать в HTML, так как они используются в синтаксисе. Для них есть специальные коды:</p>
+                <div class="table-wrapper">
+                    <table class="tag-table">
+                        <thead><tr><th>Символ</th><th>HTML-код</th><th>Описание</th></tr></thead>
+                        <tbody>
+                            <tr><td>&lt;</td><td><code>&amp;lt;</code></td><td>Меньше (открывающая скобка)</td></tr>
+                            <tr><td>&gt;</td><td><code>&amp;gt;</code></td><td>Больше (закрывающая скобка)</td></tr>
+                            <tr><td>&amp;</td><td><code>&amp;amp;</code></td><td>Амперсанд</td></tr>
+                            <tr><td>&copy;</td><td><code>&amp;copy;</code></td><td>Знак авторского права</td></tr>
+                            <tr><td>&reg;</td><td><code>&amp;reg;</code></td><td>Зарегистрированная торговая марка</td></tr>
+                            <tr><td>&nbsp;</td><td><code>&amp;nbsp;</code></td><td>Неразрывный пробел</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- ===== ЧАСТЬ 7: СОВЕТЫ ПО ВЕРСТКЕ ===== -->
+            <section class="content-section">
+                <div class="tip-box">
+                    <strong>💎 Главные советы для начинающего верстальщика:</strong>
+                    <ol style="margin-top: 10px; margin-left: 20px;">
+                        <li>Всегда закрывай теги — незакрытые теги ломают верстку</li>
+                        <li>Соблюдай вложенность — не путай порядок открытия и закрытия тегов</li>
+                        <li>Используй семантические теги вместо универсальных <code>&lt;div&gt;</code> — это улучшает SEO и доступность</li>
+                        <li>Добавляй атрибут <code>alt</code> к картинкам — это важно для слепых пользователей и поисковиков</li>
+                        <li>Проверяй код на валидаторе W3C — это бесплатно и очень полезно</li>
+                    </ol>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 CodeEasy. Учебный проект по информатике.</p>
+            <p>Создано в рамках индивидуального проекта "Создание сайта в HTML"</p>
+        </div>
+    </footer>
+</body>
+</html>
